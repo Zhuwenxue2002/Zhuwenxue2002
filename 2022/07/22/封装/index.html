@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="封装与继承封装封装（数据的隐藏） 通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。  封装的操作 将类中属性私有，利用修饰符private 给私有属性写get&#x2F;set方法一次来获取&#x2F;修改属性   在idea中，可以使用alt+Insert快捷键来快速生成私有属性的get&#x2F;set方法  封装的好处 提高程序的安全性，保护数据 隐藏">
+    <meta name="description" content="封装、继承、重写、多态封装封装（数据的隐藏） 通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。  封装的操作 将类中属性私有，利用修饰符private 给私有属性写get&#x2F;set方法一次来获取&#x2F;修改属性   在idea中，可以使用alt+Insert快捷键来快速生成私有属性的get&#x2F;set方法  封装的好处 提高程序的安全性，保">
 <meta property="og:type" content="article">
-<meta property="og:title" content="封装与继承">
+<meta property="og:title" content="封装、继承、重写、多态">
 <meta property="og:url" content="http://example.com/2022/07/22/%E5%B0%81%E8%A3%85/index.html">
 <meta property="og:site_name" content="JAVA">
-<meta property="og:description" content="封装与继承封装封装（数据的隐藏） 通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。  封装的操作 将类中属性私有，利用修饰符private 给私有属性写get&#x2F;set方法一次来获取&#x2F;修改属性   在idea中，可以使用alt+Insert快捷键来快速生成私有属性的get&#x2F;set方法  封装的好处 提高程序的安全性，保护数据 隐藏">
+<meta property="og:description" content="封装、继承、重写、多态封装封装（数据的隐藏） 通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。  封装的操作 将类中属性私有，利用修饰符private 给私有属性写get&#x2F;set方法一次来获取&#x2F;修改属性   在idea中，可以使用alt+Insert快捷键来快速生成私有属性的get&#x2F;set方法  封装的好处 提高程序的安全性，保">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-22T01:57:59.000Z">
-<meta property="article:modified_time" content="2022-07-22T03:17:54.740Z">
+<meta property="article:modified_time" content="2022-07-23T07:13:12.627Z">
 <meta property="article:author" content="Xiaobai">
 <meta name="twitter:card" content="summary">
 
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/22/%E5%B0%81%E8%A3%85/","path":"2022/07/22/封装/","title":"封装与继承"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/22/%E5%B0%81%E8%A3%85/","path":"2022/07/22/封装/","title":"封装、继承、重写、多态"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>封装与继承 | JAVA</title>
+<title>封装、继承、重写、多态 | JAVA</title>
   
 
 
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E4%B8%8E%E7%BB%A7%E6%89%BF"><span class="nav-text">封装与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%EF%BC%88%E6%95%B0%E6%8D%AE%E7%9A%84%E9%9A%90%E8%97%8F%EF%BC%89"><span class="nav-text">封装（数据的隐藏）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">封装的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">封装的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#super%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-text">super的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">继承的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E5%AD%90%E7%B1%BB%EF%BC%89"><span class="nav-text">源代码（子类）</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E9%87%8D%E5%86%99%E3%80%81%E5%A4%9A%E6%80%81"><span class="nav-text">封装、继承、重写、多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%EF%BC%88%E6%95%B0%E6%8D%AE%E7%9A%84%E9%9A%90%E8%97%8F%EF%BC%89"><span class="nav-text">封装（数据的隐藏）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">封装的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-text">封装的好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#super%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-text">super的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">继承的构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%EF%BC%88%E5%AD%90%E7%B1%BB%EF%BC%89"><span class="nav-text">源代码（子类）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%86%99%EF%BC%88Override%EF%BC%89"><span class="nav-text">重写（Override）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99"><span class="nav-text">为什么要重写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-text">多态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#instanceof-%EF%BC%88%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%89"><span class="nav-text">instanceof （类型转换）</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -182,12 +182,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="封装与继承 | JAVA">
+      <meta itemprop="name" content="封装、继承、重写、多态 | JAVA">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          封装与继承
+          封装、继承、重写、多态
         </h1>
 
         <div class="post-meta-container">
@@ -197,9 +197,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-22 09:57:59 / 修改时间：11:17:54" itemprop="dateCreated datePublished" datetime="2022-07-22T09:57:59+08:00">2022-07-22</time>
+      <time title="创建时间：2022-07-22 09:57:59" itemprop="dateCreated datePublished" datetime="2022-07-22T09:57:59+08:00">2022-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-23 15:13:12" itemprop="dateModified" datetime="2022-07-23T15:13:12+08:00">2022-07-23</time>
     </span>
 
   
@@ -212,7 +218,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="封装与继承"><a href="#封装与继承" class="headerlink" title="封装与继承"></a>封装与继承</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="封装（数据的隐藏）"><a href="#封装（数据的隐藏）" class="headerlink" title="封装（数据的隐藏）"></a>封装（数据的隐藏）</h3><ul>
+        <h1 id="封装、继承、重写、多态"><a href="#封装、继承、重写、多态" class="headerlink" title="封装、继承、重写、多态"></a>封装、继承、重写、多态</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="封装（数据的隐藏）"><a href="#封装（数据的隐藏）" class="headerlink" title="封装（数据的隐藏）"></a>封装（数据的隐藏）</h3><ul>
 <li>通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。</li>
 </ul>
 <h3 id="封装的操作"><a href="#封装的操作" class="headerlink" title="封装的操作"></a>封装的操作</h3><ol>
@@ -251,6 +257,43 @@
 <blockquote>
 <p>在idea中，用户可使用快捷键 ctrl+h 层次结构 可以观察到类的所有父类</p>
 </blockquote>
+<h3 id="重写（Override）"><a href="#重写（Override）" class="headerlink" title="重写（Override）"></a>重写（Override）</h3><ul>
+<li>重写需要有继承关系，是子类继承父类的方法</li>
+<li>方法名和参数列表必须相同。（不相同则为方法的重载）</li>
+<li>重写都是方法的重写，和属性无关</li>
+<li>重写只跟非静态方法有关</li>
+<li>修饰符：范围可以扩大但不能缩小</li>
+<li>抛出的异常：范围可以缩小但不能扩大</li>
+</ul>
+<h5 id="为什么要重写"><a href="#为什么要重写" class="headerlink" title="为什么要重写"></a>为什么要重写</h5><p><em>父类的方法子类不一定需要或者不一定满足</em></p>
+<blockquote>
+<p>在idea中，可以通过快捷键alt+Insert选择Override进行重写</p>
+</blockquote>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>同一方法可以根据发送对象的不同 而采用多种不同的行为方式</p>
+<p> 多态存在的条件：</p>
+<ol>
+<li><p>有继承关系：只有继承关系才能多态，否则会类型转换异常（ClassCastException）</p>
+</li>
+<li><p>子类重写父类的方法</p>
+</li>
+<li><p>父类引用指向子类对象 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Father</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>多态的实现本质也是类型转换，是子类转成父类（低转高自动转换），在转换时无法使用子类独有方法（丢失方法）。而如果想用父类引用调用子类方法，也需要类型转换，是父类转子类（高到低强制类型转换），才能使用子类方法。</p>
+<p><em>注：被static、private、final修饰的方法不能重写，所以也不能多态</em></p>
+<h5 id="instanceof-（类型转换）"><a href="#instanceof-（类型转换）" class="headerlink" title="instanceof （类型转换）"></a>instanceof （类型转换）</h5><p>A instanceof B 是用来判断A是否是B的<em>实例对象</em>或者B子类的<em>实例对象</em></p>
+<p>instanceof的返回值为布尔类型，但是应该分为三种情况讨论</p>
+<ol>
+<li><p>返回值为true：A是B类的（及其子类）的<em>实例对象</em></p>
+</li>
+<li><p>返回值为false：A不是B类（及其子类）的<em>实例对象</em></p>
+</li>
+<li><p>在编译时报错：</p>
+<ul>
+<li>A使用了多态，A的引用类型与B类（及其子类）没有继承关系时就会在编译时报错。</li>
+</ul>
+</li>
+</ol>
 
     </div>
 
@@ -264,11 +307,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/07/21/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" rel="prev" title="类与对象">
-                  <i class="fa fa-chevron-left"></i> 类与对象
+                <a href="/2022/07/21/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" rel="prev" title="构造方法">
+                  <i class="fa fa-chevron-left"></i> 构造方法
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/07/23/static%E5%B0%8F%E7%BB%93/" rel="next" title="static小结">
+                  static小结 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
