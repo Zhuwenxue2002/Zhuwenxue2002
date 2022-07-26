@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,6 +161,300 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/JAVA%E5%B8%B8%E7%94%A8%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/26/JAVA%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="post-title-link" itemprop="url">JAVA常用类</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-26 10:32:03 / 修改时间：16:25:47" itemprop="dateCreated datePublished" datetime="2022-07-26T10:32:03+08:00">2022-07-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="JAVA常用类"><a href="#JAVA常用类" class="headerlink" title="JAVA常用类"></a>JAVA常用类</h1><h2 id="Math类"><a href="#Math类" class="headerlink" title="Math类"></a>Math类</h2><p>Math包含执行基本数字运算的方法</p>
+<p><em>注：类似Math类的工具类中不是没有构造方法，而是构造方法被private修饰，无法实例化对象。但其所有方法（属性）都是静态的。都可以利用类名.方法（属性）的方式调用</em></p>
+<h3 id="Math类的常用方法"><a href="#Math类的常用方法" class="headerlink" title="Math类的常用方法"></a>Math类的常用方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int abs(int)</td>
+<td>返回参数的绝对值</td>
+</tr>
+<tr>
+<td>double ceil(double a )</td>
+<td>返回大于或等于参数的最小double值，等于一个整数(向上取整)</td>
+</tr>
+<tr>
+<td>double floor(double a)</td>
+<td>返回小于或等于参数的最小double值，等于一个整数(向下取整)</td>
+</tr>
+<tr>
+<td>int round(float a)</td>
+<td>按照四舍五入返回最接近参数的int</td>
+</tr>
+<tr>
+<td>int max(int a, int b)</td>
+<td>返回两个int中的较大值</td>
+</tr>
+<tr>
+<td>int min(int a, int b)</td>
+<td>返回两个int中的较小值</td>
+</tr>
+<tr>
+<td>double pow(double a, double b)</td>
+<td>返回a的b次幂的值</td>
+</tr>
+<tr>
+<td>double random()</td>
+<td>返回值为double的正值 , [0.0,1.0)（取随机数）</td>
+</tr>
+</tbody></table>
+<p><em>注：如果想取1~100的随机数，可以先调用方法乘100之后用int进行强制类型转换</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">int</span>)(Math.random() * <span class="number">100</span>) + <span class="number">1</span>; <span class="comment">//方法是取0~99所以要加1</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="System类"><a href="#System类" class="headerlink" title="System类"></a>System类</h2><p>System类也是工具类，无法实例化对象</p>
+<h3 id="System类的常用方法"><a href="#System类的常用方法" class="headerlink" title="System类的常用方法"></a>System类的常用方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void exit(int status)</td>
+<td>终止当前运行的Java虚拟机，非零表示异常终止</td>
+</tr>
+<tr>
+<td>long currentTimeMillis()</td>
+<td>返回当前时间（以毫秒为单位）1970年距今的毫秒值</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.currentTimeMillis() * <span class="number">1.0</span> / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span> / <span class="number">365</span>; <span class="comment">//1970距今有多少年</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>利用System.currentTimeMillis();方法实现记录整个循环所有时间为多少毫秒</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis(); <span class="comment">//记录for循环开始时间</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis(); <span class="comment">//记录for循环结束时间</span></span><br><span class="line">        System.out.println(end - start); <span class="comment">//输出for所用时间</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>类Object是所有类的超类，所有类都直接的或者间接的继承Object类</p>
+<p><strong>Object类中有构造方法</strong></p>
+<h3 id="toString方法"><a href="#toString方法" class="headerlink" title="toString方法"></a>toString方法</h3><p>调用方法：对象a.toString();</p>
+<p>toString方法会默认返回:全类名(包名+类名)+@+哈希值的十六进制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> getClass().getName() + <span class="string">&quot;@&quot;</span> + Integer.toHexString(hashCode());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>通常情况下，我们经常会在类中重写toString方法来输出该对象的属性</p>
+<blockquote>
+<p>在idea中，用户可以通过快捷键alt+Insert键快速重写toString方法</p>
+</blockquote>
+<p>重写后,可以通过调用toString方法来对对象的属性进行输出</p>
+<hr>
+<h3 id="equals方法"><a href="#equals方法" class="headerlink" title="equals方法"></a>equals方法</h3><p>调用方法，对象a.equals(对象b)；</p>
+<p>equals方法会默认对比两个对象的地址值是否相等（引用类型）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Objects obj)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="built_in">this</span> == obj);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>如果想让equals方法对比两个对象的属性值是否相等，需要在类中重写equals方法</p>
+<blockquote>
+<p>在idea中，用户可以通过快捷键alt+Insert键快速重写equals方法</p>
+</blockquote>
+<p>重写后，可以调用equals方法来对比属性值是否相等</p>
+<hr>
+<h2 id="Arrays类"><a href="#Arrays类" class="headerlink" title="Arrays类"></a>Arrays类</h2><p>Arrays类包含用于操作数组的各种方法</p>
+<p>Arryas也是工具类，不能实例化对象</p>
+<h3 id="Arrays类的常用方法"><a href="#Arrays类的常用方法" class="headerlink" title="Arrays类的常用方法"></a>Arrays类的常用方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String toString(int[] a)</td>
+<td>返回指定数组的内容的字符串表现形式</td>
+</tr>
+<tr>
+<td>void sort(int[] a)</td>
+<td>按照数字排序排列指定的数组</td>
+</tr>
+</tbody></table>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/%E5%BC%82%E5%B8%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/25/%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">异常</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-25 14:08:00 / 修改时间：17:07:39" itemprop="dateCreated datePublished" datetime="2022-07-25T14:08:00+08:00">2022-07-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="异常（Exception）"><a href="#异常（Exception）" class="headerlink" title="异常（Exception）"></a>异常（Exception）</h1><h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
+<li>检查性异常</li>
+<li>运行时异常</li>
+<li>错误（Error）</li>
+</ul>
+<p>异常通过各种意义上可以分为不同的类别，比如分为运行时异常和非运行时异常，也可以分为异常和错误。</p>
+<p><em><strong>Error和Exception的区别：</strong></em></p>
+<p><em>Error通常是灾难性的致命性的错误，是程序无法处理的，当出现这种异常时，Java虚拟机（JVM）一般会选择终止线程</em></p>
+<p><em>Exception通常情况下是可以被程序处理的，并且在程序中应该尽可能的去处理这些异常</em></p>
+<h3 id="异常体系结构"><a href="#异常体系结构" class="headerlink" title="异常体系结构"></a>异常体系结构</h3><p>Java把异常当做对象来处理，并定义一个基类java.lang.Throwable作为所有异常的超类</p>
+<p>在Java API很中已经定义了许多异常类，这些异常类又被分为两大类，错误（Error）和异常（Exception）</p>
+<p><img src="/2022/07/25/%E5%BC%82%E5%B8%B8/1.png"></p>
+<h3 id="异常处理机制"><a href="#异常处理机制" class="headerlink" title="异常处理机制"></a>异常处理机制</h3><p>异常处理的五个关键字</p>
+<ul>
+<li>try、catch、finally、throw、throws</li>
+</ul>
+<hr>
+<h4 id="try、catch、finally的用法"><a href="#try、catch、finally的用法" class="headerlink" title="try、catch、finally的用法"></a>try、catch、finally的用法</h4><p>try、catch、finally一般连用，finally可选，try、catch必须存在</p>
+<p><em>注：异常处理的实现机制有点类似选择结构的Switch ，一层层筛选到最后执行（Finally如果存在则一定执行）</em></p>
+<h5 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h5><p>零不能作为除数的异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        System.out.println(a / b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="/2022/07/25/%E5%BC%82%E5%B8%B8/2.png"></p>
+<hr>
+<p>利用try、catch、finally 监控、捕获、处理异常</p>
+<h5 id="源代码-1"><a href="#源代码-1" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//假设要捕获多个异常，类要从小到大排列 否则会报错</span></span><br><span class="line">        <span class="keyword">try</span> &#123;<span class="comment">//try 监控区域</span></span><br><span class="line">            System.out.println(a/b);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Error e)&#123; <span class="comment">//catch（捕获想要的异常类型） 捕获异常 这里的形参应该为异常类和对象</span></span><br><span class="line">            System.out.println(<span class="string">&quot;Error&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception e)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Exception&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Throwable t)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Throwable&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">finally</span>&#123; <span class="comment">//处理善后工作(如果存在则必定执行)</span></span><br><span class="line">            System.out.println(<span class="string">&quot;Finally&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//finally关键字可选</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="/2022/07/25/%E5%BC%82%E5%B8%B8/3.png"></p>
+<hr>
+<blockquote>
+<p>在idea中，选择代码后，快捷键ctrl+alt+d快捷键可以使代码被…环绕</p>
+<p><img src="/2022/07/25/%E5%BC%82%E5%B8%B8/4.png"></p>
+</blockquote>
+<hr>
+<h4 id="throw-和-throws-总结"><a href="#throw-和-throws-总结" class="headerlink" title="throw 和 throws 总结"></a>throw 和 throws 总结</h4><p>虽然系统没有throw也要把异常抛回给上层调用，但是用户一般习惯于把自己所知的异常用throw抛出，在调用层使用catch来捕获异常，这样相呼应就写成了异常的处理方法。而一般没有写throw的异常基本都是用户预期之外发生的异常。</p>
+<p>throws 关键字和 throw 关键字在使用上的几点区别如下：</p>
+<ol>
+<li>throws 用来声明一个方法可能抛出的所有异常信息，表示出现异常的一种可能性，但并不一定会发生这些异常；throw 则是指拋出的一个具体的异常类型，执行 throw 则一定抛出了某种异常对象。</li>
+<li>通常在一个方法（类）的声明处通过 throws 声明方法（类）可能拋出的异常信息，而在方法（类）内部通过 throw 声明一个具体的异常信息。</li>
+<li><del>throws 通常不用显示地捕获异常，可由系统自动将所有捕获的异常信息抛给上级方法；</del> throw 则需要用户自己捕获相关的异常，而后再对其进行相关包装，最后将包装后的异常信息抛出。</li>
+</ol>
+<p><em>注：经测试 idea编译器严格要求throws抛出异常后,上层需要捕获才能编译通过</em> </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -953,181 +1247,6 @@
 <hr>
 <p><em>注：类中属性和类中方法一样，如果想要用类名.属性名调用该属性，则该属性必须要用static修饰符修饰</em></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/20/Scanner%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaobai">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="小白的笔记存档">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/20/Scanner%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Scanner对象</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-20 13:03:13" itemprop="dateCreated datePublished" datetime="2022-07-20T13:03:13+08:00">2022-07-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-24 19:43:18" itemprop="dateModified" datetime="2022-07-24T19:43:18+08:00">2022-07-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Scanner对象"><a href="#Scanner对象" class="headerlink" title="Scanner对象"></a>Scanner对象</h1><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Scanner</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br></pre></td></tr></table></figure>
-<hr>
-<ul>
-<li>通过Scanner类的next()与nextLine()的方法获取输入的字符串，在读取前我们一般需要使用hasNext()与hasNextLine()判断是否还有输入的数据</li>
-</ul>
-<h3 id="next-与nextLine-方法的区别"><a href="#next-与nextLine-方法的区别" class="headerlink" title="next()与nextLine()方法的区别"></a>next()与nextLine()方法的区别</h3><ul>
-<li><strong>next()</strong><ol>
-<li>一定要读取到有效字符后才可以结束输入</li>
-<li>对输入有效字符之前遇到的空白，next()方法会自动将其去掉</li>
-<li>只有输入有效字符后才能将其后面输入的空白作为分隔符或者结束符</li>
-<li>next()方法不能得到含有空格的字符串</li>
-</ol>
-</li>
-<li><strong>nextLine()</strong><ol>
-<li>以Enter作为结束符，也就是说 nextLine()方法返回的是输入回车之前的所有字符。</li>
-<li>可以获得空白</li>
-</ol>
-</li>
-</ul>
-<h5 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.org.apache.xerces.internal.impl.xs.SchemaNamespaceSupport;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (scanner.hasNextLine()) &#123;</span><br><span class="line">      <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> scanner.nextLine();</span><br><span class="line">      System.out.println(<span class="string">&quot;输入的内容为：&quot;</span> + str);</span><br><span class="line">    &#125;</span><br><span class="line">    scanner.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>注：实例化方法，不能直接调用类中的方法，需要实例化对象后，使用对象去调用类中方法。</p>
-<p>在实例化对象时，必须要用到构造方法。每一个类一定存在一个构造方法。且构造方法必须与类同名。</p>
-<p><em>如果是静态变量或方法（static）就可以用类名直接调用方法或变量</em></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/20/%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaobai">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="小白的笔记存档">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/20/%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">运算符</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-20 08:53:10" itemprop="dateCreated datePublished" datetime="2022-07-20T08:53:10+08:00">2022-07-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-24 19:42:35" itemprop="dateModified" datetime="2022-07-24T19:42:35+08:00">2022-07-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h3 id="字符串连接符"><a href="#字符串连接符" class="headerlink" title="字符串连接符"></a>字符串连接符</h3><h5 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">          <span class="comment">//字符串连接符”+“</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;a+b= &quot;</span> + a + b); <span class="comment">//这里的a+b已经被转变成字符串且链接</span></span><br><span class="line">        System.out.println(a + b + <span class="string">&quot;=a+b&quot;</span>); <span class="comment">//这里的a+b先计算后再与后面的字符串链接</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
