@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="基本类型包装类将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能方法操作该数据 常用的操作之一：用于基本数据类型与字符串之间的转换    基本数据类型 包装类    byte Byte   short Short   int Integer   long Long   float Float   double Double   char Character   boolean Boole">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本类型包装类">
+<meta property="og:url" content="http://example.com/2022/07/27/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB/index.html">
+<meta property="og:site_name" content="为了猪猪能吃到肉肉而学习！">
+<meta property="og:description" content="基本类型包装类将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能方法操作该数据 常用的操作之一：用于基本数据类型与字符串之间的转换    基本数据类型 包装类    byte Byte   short Short   int Integer   long Long   float Float   double Double   char Character   boolean Boole">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-27T02:52:38.000Z">
+<meta property="article:modified_time" content="2022-07-27T04:53:57.444Z">
+<meta property="article:author" content="Xiaobai">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/27/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/27/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB/","path":"2022/07/27/基本类型包装类/","title":"基本类型包装类"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基本类型包装类 | 为了猪猪能吃到肉肉而学习！</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">为了猪猪能吃到肉肉而学习！</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">破楚吞吴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-text">基本类型包装类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="nav-text">Integer包装类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Integer%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">Integer类的构造方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int%E5%92%8CString%E4%B9%8B%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="nav-text">int和String之间的相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F"><span class="nav-text">案例：对字符串中数据进行排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E5%92%8C%E6%8B%86%E7%AE%B1"><span class="nav-text">自动装箱和拆箱</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xiaobai</p>
+  <div class="site-description" itemprop="description">小白的笔记存档</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/27/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基本类型包装类 | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基本类型包装类
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-27 10:52:38 / 修改时间：12:53:57" itemprop="dateCreated datePublished" datetime="2022-07-27T10:52:38+08:00">2022-07-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="基本类型包装类"><a href="#基本类型包装类" class="headerlink" title="基本类型包装类"></a>基本类型包装类</h1><p>将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能方法操作该数据</p>
+<p>常用的操作之一：用于基本数据类型与字符串之间的转换</p>
+<table>
+<thead>
+<tr>
+<th align="center">基本数据类型</th>
+<th align="center">包装类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">byte</td>
+<td align="center">Byte</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">Short</td>
+</tr>
+<tr>
+<td align="center"><strong>int</strong></td>
+<td align="center"><strong>Integer</strong></td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">Long</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">Float</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">Double</td>
+</tr>
+<tr>
+<td align="center"><strong>char</strong></td>
+<td align="center"><strong>Character</strong></td>
+</tr>
+<tr>
+<td align="center">boolean</td>
+<td align="center">Boolean</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Integer包装类"><a href="#Integer包装类" class="headerlink" title="Integer包装类"></a>Integer包装类</h3><h5 id="Integer类的构造方法"><a href="#Integer类的构造方法" class="headerlink" title="Integer类的构造方法"></a>Integer类的构造方法</h5><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Integer(int value)</td>
+<td>根据int值创建Integer对象（过时）</td>
+</tr>
+<tr>
+<td>Integer(String s)</td>
+<td>根据String值创建Integer对象（过时）</td>
+</tr>
+<tr>
+<td><strong>static Integer valueOf(int i)</strong></td>
+<td><strong>返回表示指定int值的Integer实例</strong></td>
+</tr>
+<tr>
+<td><strong>static Integer valueOf(String s)</strong></td>
+<td><strong>返回一个保存指定值Integer对象String</strong></td>
+</tr>
+</tbody></table>
+<p><em>注：Integer类的valueOf方法是静态方法，可直接通过Integer.valueOf()调用，其返回值应该是一个对象</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">i1</span> <span class="operator">=</span> Integer.valueOf(<span class="number">100</span>);</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">i2</span> <span class="operator">=</span> Integer.valueOf(<span class="string">&quot;100&quot;</span>);<span class="comment">//这里的字符串参数只能是由int型数据构成的字符串参数</span></span><br><span class="line">        <span class="comment">//Integer i2 = Integer.valueOf(&quot;abc&quot;);//NumberFormatException异常</span></span><br><span class="line">        System.out.println(i1);</span><br><span class="line">        System.out.println(i2);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="int和String之间的相互转换"><a href="#int和String之间的相互转换" class="headerlink" title="int和String之间的相互转换"></a>int和String之间的相互转换</h3><ol>
+<li>int转换为String</li>
+</ol>
+<p>static String valueOf(int i)：返回int参数的字符串表现形式，该方法是String类中的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//int -&gt; String</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">        <span class="comment">//方式一：</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span> + num;</span><br><span class="line">        System.out.println(s1);<span class="comment">//这里的s1为字符串</span></span><br><span class="line">        <span class="comment">//方式二（主要）</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> String.valueOf(num);<span class="comment">//使用String valueOf静态方法转成字符串类型</span></span><br><span class="line">        System.out.println(s2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<ol start="2">
+<li>String转换为int</li>
+</ol>
+<p>static int parsenInt(String s)：将字符串解析为int类型，该方法是Integer类中方法</p>
+<p><em>parse英文释义：语法分析</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//Sting -&gt; Integer -&gt; int</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;100&quot;</span>;</span><br><span class="line">        <span class="comment">//方式一</span></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">i1</span> <span class="operator">=</span> Integer.valueOf(s);<span class="comment">//先把String转换成Integer类型对象i1</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> i1.intValue();<span class="comment">//使用对象i1调用intValue方法</span></span><br><span class="line">        System.out.println(x);<span class="comment">//此时x为int类型</span></span><br><span class="line">        <span class="comment">//方式二（主要）</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">y</span> <span class="operator">=</span> Integer.parseInt(s);<span class="comment">//调用parseInt静态方法</span></span><br><span class="line">        System.out.println(y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="案例：对字符串中数据进行排序"><a href="#案例：对字符串中数据进行排序" class="headerlink" title="案例：对字符串中数据进行排序"></a>案例：对字符串中数据进行排序</h3><p>需求：有一个字符串：”91 27 46 38 50” 对其数据进行排序，并输出字符串</p>
+<ol>
+<li><p>使用String类中split方法对字符串进行分割，其返回值是一个字符串数组</p>
+</li>
+<li><p>定义一个int型数组，使用Integer类中parseInt方法把字符串数组转成int型数组</p>
+</li>
+<li><p>使用StringBuilder类中append方法对int型数组中元素进行拼接，得到一个字符串 <em>append英文释义：追加</em></p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;91 27 46 38 50&quot;</span>;</span><br><span class="line">        String[] strArray = s1.split(<span class="string">&quot; &quot;</span>);<span class="comment">//以&quot; &quot;作为分割符，对s1进行分割</span></span><br><span class="line">      </span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[strArray.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; strArray.length; i++) &#123;</span><br><span class="line">            arr[i] = Integer.parseInt(strArray[i]); <span class="comment">//数据类型转换 Sring转int</span></span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">        Arrays.sort(arr); <span class="comment">//数组排序</span></span><br><span class="line">      </span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(); <span class="comment">//使用StringBuilder构建空的字符串</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == arr.length - <span class="number">1</span>)<span class="comment">//最后一个数时</span></span><br><span class="line">                s2.append(arr[i]);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                s2.append(arr[i]);</span><br><span class="line">                s2.append(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">          	<span class="comment">//toString方法以字符串类型返回StringBuilder中的字符串</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> s2.toString();</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="自动装箱和拆箱"><a href="#自动装箱和拆箱" class="headerlink" title="自动装箱和拆箱"></a>自动装箱和拆箱</h3><p>装箱：基本数据类型转换为对应的包装数据类型</p>
+<p>拆箱：反之</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">ii</span> <span class="operator">=</span> Integer.valueOf(i);<span class="comment">//装箱</span></span><br><span class="line">        i = ii.intValue();<span class="comment">//拆箱</span></span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">iii</span> <span class="operator">=</span> <span class="number">100</span>;<span class="comment">//自动装箱</span></span><br><span class="line">        i = iii;<span class="comment">//自动拆箱</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>注：如果对包装类类型数据进行操作，最好先进行判断是否为null</em></p>
+<p><em><strong>只要是对象，在使用前就必须进行不为null的判断</strong></em></p>
+<hr>
+<p>自动装箱（拆箱）在jdk5之后的版本就可以实现了。其实联想到String类就能明白。String类不是基本数据类型，但是他的操作方式和基本数据类型又很相似，这里就应该是系统对String类操作的一个简化。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/26/JAVA%E5%B8%B8%E7%94%A8%E7%B1%BB/" rel="prev" title="JAVA常用类">
+                  <i class="fa fa-chevron-left"></i> JAVA常用类
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/27/%E6%97%A5%E6%9C%9F%E7%B1%BB/" rel="next" title="日期类">
+                  日期类 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaobai</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
