@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,6 +161,139 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/28/%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/28/%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">集合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-28 16:25:04 / 修改时间：17:56:27" itemprop="dateCreated datePublished" datetime="2022-07-28T16:25:04+08:00">2022-07-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="ArrayList-集合"><a href="#ArrayList-集合" class="headerlink" title="ArrayList 集合"></a>ArrayList 集合</h1><p><em>我们可以把ArrayList 看作是一个数据类型为引用类型的数组，并且该数组的长度用size表示，而且没有固定大小</em></p>
+<p>ArrayList<E></p>
+<ul>
+<li>可调整大小的数组实现</li>
+<li><E>:是一种特殊的数据类型，泛型</li>
+</ul>
+<p>使用方法：</p>
+<p>​	在出现E的地方我们使用引用数据类型替换即可</p>
+<p>​	距离：ArrayList<String>,ArrayList<Student></p>
+<h3 id="ArrayList构造方法和添加方法"><a href="#ArrayList构造方法和添加方法" class="headerlink" title="ArrayList构造方法和添加方法"></a>ArrayList构造方法和添加方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Arraylist()</strong></td>
+<td><strong>创建一个空的集合对象 （构造方法）</strong></td>
+</tr>
+<tr>
+<td>boolean add(E e)</td>
+<td>将指定元素（对象）追加到此集合的末尾</td>
+</tr>
+<tr>
+<td>void add(int index,E e)</td>
+<td>在集合中的指定位置插入指定元素</td>
+</tr>
+</tbody></table>
+<h5 id="构造和添加方法源代码"><a href="#构造和添加方法源代码" class="headerlink" title="构造和添加方法源代码"></a>构造和添加方法源代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ArrayList&lt;String&gt; arr = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">        arr.add(<span class="string">&quot;Hellow&quot;</span>);</span><br><span class="line">        arr.add(<span class="string">&quot;World&quot;</span>);</span><br><span class="line">        <span class="comment">//在集合2的位置插入Xiaobai，如果在集合3的位置插入就会出现异常：集合的索引越界</span></span><br><span class="line">        arr.add(<span class="number">2</span>,<span class="string">&quot;Xiaobai&quot;</span>);</span><br><span class="line">        System.out.println(arr); <span class="comment">//[Hellow, World, Xiaobai]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="ArrayList集合常用方法"><a href="#ArrayList集合常用方法" class="headerlink" title="ArrayList集合常用方法"></a>ArrayList集合常用方法</h3><p><em>index英文释义：索引</em></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean remove(Object o )</td>
+<td>删除指定元素，返回删除是否成功</td>
+</tr>
+<tr>
+<td>E remove(int index)</td>
+<td>删除指定位置的元素，并返回被删除的元素</td>
+</tr>
+<tr>
+<td>E set(int index,E e)</td>
+<td>修改指定位置的元素，返回被修改的元素</td>
+</tr>
+<tr>
+<td>E get(int index)</td>
+<td>返回指定位置的元素</td>
+</tr>
+<tr>
+<td>int size()</td>
+<td>返回集合中元素个数</td>
+</tr>
+</tbody></table>
+<h3 id="集合元素的遍历"><a href="#集合元素的遍历" class="headerlink" title="集合元素的遍历"></a>集合元素的遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.size(); i++) &#123;</span><br><span class="line">		<span class="comment">//在这里不能直接sout(arr.get(i))，因为Student是特殊的引用类型</span></span><br><span class="line">  	<span class="type">Student</span> <span class="variable">s</span> <span class="operator">=</span> arr.get(i);	</span><br><span class="line">		<span class="comment">//get方法获取到Student类对象s的name和age属性</span></span><br><span class="line">  	System.out.println(s.getName + <span class="string">&quot;,&quot;</span> + s.getAge);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1354,93 +1487,6 @@
 </ul>
 </li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/21/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaobai">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="小白的笔记存档">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/21/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">构造方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-21 22:23:35" itemprop="dateCreated datePublished" datetime="2022-07-21T22:23:35+08:00">2022-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-24 19:42:07" itemprop="dateModified" datetime="2022-07-24T19:42:07+08:00">2022-07-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h1><ul>
-<li>构造方法一定存在，如果没有单独声明则系统会给默认的构造方法</li>
-<li>构造方法一定与类同名</li>
-<li>构造方法除public一类（访问级别）修饰符外，没有其他的修饰符</li>
-<li>实例化对象时，通常与new关键字连用</li>
-<li>构造方法同样是方法，可以用方法的重载</li>
-<li>如果用户定义了一个有参构造方法，需再定义一个无参构造方法，否则无参构造方法（默认生成）将不能使用</li>
-</ul>
-<p><em>注：当用户自己编写构造方法时，通常是为了初始化值</em></p>
-<blockquote>
-<p>用idea编译器时，可以使用alt+Insert快捷键来生成构造方法</p>
-</blockquote>
 
       
     </div>
