@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -170,6 +170,237 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/29/%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/29/%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6/" class="post-title-link" itemprop="url">集合进阶</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-29 14:50:59" itemprop="dateCreated datePublished" datetime="2022-07-29T14:50:59+08:00">2022-07-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-03 20:41:55" itemprop="dateModified" datetime="2022-08-03T20:41:55+08:00">2022-08-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="集合的体系结构"><a href="#集合的体系结构" class="headerlink" title="集合的体系结构"></a>集合的体系结构</h3><p><img src="/2022/07/29/%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6/1.png"></p>
+<h1 id="Collection-集合"><a href="#Collection-集合" class="headerlink" title="Collection 集合"></a>Collection 集合</h1><p><em>Collection是一个接口</em></p>
+<ul>
+<li>Collection是单列集合的顶层接口，它表示一组对象，这些对象也称为Collection元素</li>
+<li>JDK不提供此接口的任何直接实现，他提供更具体的子接口（如Set或List）实现类</li>
+</ul>
+<p>创建Collection集合的对象</p>
+<ul>
+<li>多态的方式</li>
+<li>具体的实现类 ArrayList</li>
+</ul>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;String&gt; c = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();<span class="comment">//利用多态创建集合</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Collection接口常用方法"><a href="#Collection接口常用方法" class="headerlink" title="Collection接口常用方法"></a>Collection接口常用方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean add(E e)</td>
+<td>添加元素</td>
+</tr>
+<tr>
+<td>boolean remove(Object o)</td>
+<td>从集合中移除指定的元素</td>
+</tr>
+<tr>
+<td>void clear()</td>
+<td>清空集合中的元素</td>
+</tr>
+<tr>
+<td>boolean contains(Object o)</td>
+<td>判断集合中是否有指定元素</td>
+</tr>
+<tr>
+<td>boolean isEmpty()</td>
+<td>判断集合是否为空</td>
+</tr>
+<tr>
+<td>int size()</td>
+<td>集合长度，也就是集合中元素个数</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Collection集合的遍历"><a href="#Collection集合的遍历" class="headerlink" title="Collection集合的遍历"></a>Collection集合的遍历</h3><p>Iterator：迭代器，集合的专用遍历方式</p>
+<ul>
+<li><p>Iterator<E>iterator()：返回次集合中元素的迭代器，通过集合的ierator方法得到</p>
+</li>
+<li><p>迭代器通过集合的iterator()方法得到，所以说他依赖于集合而存在</p>
+</li>
+</ul>
+<p>Iterator本身是一个接口，在ArrayList中重写了iterator()方法，并重写了内部实现类Itr</p>
+<p>iterator()方法的返回值也为此接口的实现类 Itr的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; it = c.iterator();<span class="comment">//多态的一种用法，引用接口指向实现类对象</span></span><br></pre></td></tr></table></figure>
+
+<p>有两个常用的调用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">it.next();<span class="comment">//迭代获取元素</span></span><br><span class="line">it.hasNext();<span class="comment">//判断有没有下一个元素</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="集合使用流程"><a href="#集合使用流程" class="headerlink" title="集合使用流程"></a>集合使用流程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//创建集合对象</span></span><br><span class="line">        Collection&lt;String&gt; c = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">        <span class="comment">//创建元素</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">        <span class="comment">//添加元素到集合</span></span><br><span class="line">        c.add(s);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建迭代器</span></span><br><span class="line">        Iterator&lt;String&gt; it = c.iterator();</span><br><span class="line">        <span class="comment">//通过迭代器判断是否还有元素</span></span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            <span class="comment">//获取到元素</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> it.next();</span><br><span class="line">            <span class="comment">//输出元素</span></span><br><span class="line">            System.out.println(s1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;q</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><p><em>List接口继承Collection接口</em></p>
+<ul>
+<li><strong>有序</strong>集合（也称为序列），用户可以精准控制列表中每个元素的插入位置。用户可以通过整数索引访问元素，并搜索列表中的元素。</li>
+<li>与Set集合不同，列表通常允许<strong>重复</strong>的元素</li>
+</ul>
+<h3 id="List接口特有方法"><a href="#List接口特有方法" class="headerlink" title="List接口特有方法"></a>List接口特有方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void add(int index,E e)</td>
+<td>在此集合中的指定位置添加指定元素</td>
+</tr>
+<tr>
+<td>E remove (int index)</td>
+<td>删除指定索引处的元素，返回被删除的元素</td>
+</tr>
+<tr>
+<td>E set(int index,E e)</td>
+<td>修改指定索引处的元素，返回被修改的元素</td>
+</tr>
+<tr>
+<td>E get(int index)</td>
+<td>返回指定索引出的元素</td>
+</tr>
+</tbody></table>
+<p><em>注：List有一个具体的实现类ArrayList，在其中重写了两个父接口的方法</em></p>
+<p><em>在ArrayList中，分别重写了List接口中E remove (int index)方法，和Collection接口中boolean remove(Object o)方法。（这里是方法的重写，不是方法的重载）</em></p>
+<hr>
+<h3 id="并发修改异常"><a href="#并发修改异常" class="headerlink" title="并发修改异常"></a>并发修改异常</h3><p><em><strong>ConcurrntModificationException</strong></em></p>
+<p>使用迭代器时需要保证List集合的内容不发生改变，如果List集合中内容发生改变，迭代器又没有重新使用List集合iterator()方法去更新内容。直接调用迭代器的next()方法就会出现<strong>并发修改异常</strong>。</p>
+<p><em>如果直接使用hasNext()方法则不会出现异常，因为这个方法没有检测判断</em></p>
+<h5 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h5><p>modCount变量（List的父类抽象类AbstractList中）会在Itr实现类实例化时（调用iterator方法时）赋值给expectedModCount属性。</p>
+<p>其意思为集合修改次数，和集合预期修改次数（初始化迭代器时这两个变量相等）</p>
+<p>**当在寄存器遍历过程中调用add方法，则modCount++； **</p>
+<p>调用next()方法时检测发现，集合修改次数与集合预期修改次数不相等，则抛出异常</p>
+<p><em>个人理解就是不可以在迭代器遍历集合的过程中对集合添加元素</em></p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><p>不用迭代器，用for加索引的方式来遍历集合。</p>
+<hr>
+<h3 id="ListIterator列表迭代器"><a href="#ListIterator列表迭代器" class="headerlink" title="ListIterator列表迭代器"></a>ListIterator列表迭代器</h3><p>列表迭代器</p>
+<ul>
+<li>通过List接口的listIterator()方法得到，所以说它是List集合特有的迭代器</li>
+<li>允许沿任意方向遍历列表的列表迭代器，在迭代期间修改列表，并获取列表中迭代器的当前位置</li>
+</ul>
+<p><em>ListIterator继承自Iterator接口</em></p>
+<h4 id="ListIterator常用方法"><a href="#ListIterator常用方法" class="headerlink" title="ListIterator常用方法"></a>ListIterator常用方法</h4><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E next()</td>
+<td>返回迭代中的下一元素</td>
+</tr>
+<tr>
+<td>boolean hasNext()</td>
+<td>判断列表中是否还有下一元素</td>
+</tr>
+<tr>
+<td>E previous()</td>
+<td>返回列表中的上一元素</td>
+</tr>
+<tr>
+<td>boolean hasPrevious()</td>
+<td>判断列表是否还有上一元素</td>
+</tr>
+<tr>
+<td>void add(E e)</td>
+<td>将指定元素插入列表</td>
+</tr>
+</tbody></table>
+<p><em>previous英文释义：以前的、先前的、以往的</em></p>
+<h5 id="独有的add方法"><a href="#独有的add方法" class="headerlink" title="独有的add方法"></a>独有的add方法</h5><p>列表迭代器可以调用add()方法直接向集合中添加元素，而不会出现并发修改异常</p>
+<p>原因是因为add()方法在添加元素后modCount重新赋值给expectedModCount属性</p>
+<hr>
+<h3 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h3><p>简化数组和Collection集合的遍历</p>
+<ul>
+<li>继承Iterable接口的实现类允许对象成为增强for的目标</li>
+<li>增强for的内部原理是一个Iterator迭代器</li>
+</ul>
+<p><strong>格式：</strong></p>
+<p>for(数组（集合）中元素的数据类型 变量名 : 数组（集合）){</p>
+<p>在此处使用变量即可，该变量就是元素</p>
+<p>}</p>
+<p><em>注：增强for同样不可以在遍历时对集合进行添加元素操作</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/28/%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -198,9 +429,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-28 16:25:04 / 修改时间：17:56:27" itemprop="dateCreated datePublished" datetime="2022-07-28T16:25:04+08:00">2022-07-28</time>
+      <time title="创建时间：2022-07-28 16:25:04" itemprop="dateCreated datePublished" datetime="2022-07-28T16:25:04+08:00">2022-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-03 17:24:03" itemprop="dateModified" datetime="2022-08-03T17:24:03+08:00">2022-08-03</time>
     </span>
 
   
@@ -213,7 +450,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="ArrayList-集合"><a href="#ArrayList-集合" class="headerlink" title="ArrayList 集合"></a>ArrayList 集合</h1><p><em>我们可以把ArrayList 看作是一个数据类型为引用类型的数组，并且该数组的长度用size表示，而且没有固定大小</em></p>
+          <h1 id="ArrayList-集合实现类"><a href="#ArrayList-集合实现类" class="headerlink" title="ArrayList 集合实现类"></a>ArrayList 集合实现类</h1><p><em>我们可以把ArrayList 看作是一个数据类型为引用类型的数组，并且该数组的长度用size表示，而且没有固定大小</em></p>
 <p>ArrayList<E></p>
 <ul>
 <li>可调整大小的数组实现</li>
@@ -1336,157 +1573,6 @@
 <h3 id="静态导入包（拓展）"><a href="#静态导入包（拓展）" class="headerlink" title="静态导入包（拓展）"></a><em>静态导入包（拓展）</em></h3><p>在使用关键字import导入包的时候 可以加入static修饰符实现静态导入包中方法</p>
 <h5 id="源代码-1"><a href="#源代码-1" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.PI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(PI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/22/%E5%B0%81%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaobai">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="小白的笔记存档">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/22/%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">封装、继承、重写、多态</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-22 09:57:59" itemprop="dateCreated datePublished" datetime="2022-07-22T09:57:59+08:00">2022-07-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-24 19:41:59" itemprop="dateModified" datetime="2022-07-24T19:41:59+08:00">2022-07-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="封装、继承、重写、多态"><a href="#封装、继承、重写、多态" class="headerlink" title="封装、继承、重写、多态"></a>封装、继承、重写、多态</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="封装（数据的隐藏）"><a href="#封装（数据的隐藏）" class="headerlink" title="封装（数据的隐藏）"></a>封装（数据的隐藏）</h3><ul>
-<li>通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。</li>
-</ul>
-<h3 id="封装的操作"><a href="#封装的操作" class="headerlink" title="封装的操作"></a>封装的操作</h3><ol>
-<li>将类中属性私有，利用修饰符private</li>
-<li>给私有属性写get&#x2F;set方法一次来获取&#x2F;修改属性</li>
-</ol>
-<blockquote>
-<p>在idea中，可以使用alt+Insert快捷键来快速生成私有属性的get&#x2F;set方法</p>
-</blockquote>
-<h3 id="封装的好处"><a href="#封装的好处" class="headerlink" title="封装的好处"></a>封装的好处</h3><ol>
-<li>提高程序的安全性，保护数据</li>
-<li>隐藏代码实现细节</li>
-<li>统一接口</li>
-<li>增加系统可维护性</li>
-</ol>
-<hr>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承的本质就是使子类能够使用其父类的（有权限的）属性或方法</p>
-<p><em>注：如果拿二叉树来类比，叶子节点则可以使用所有其祖先节点的属性和方法。</em></p>
-<ol>
-<li>继承的关键字时extends</li>
-<li>JAVA中，只有单继承，没有多继承，一个父类可以有多个子类，一个子类只能有一个父类（类似于树的结构）</li>
-<li>在JAVA中，所有的类都将间接或直接的继承object类</li>
-</ol>
-<h3 id="super的用法"><a href="#super的用法" class="headerlink" title="super的用法"></a>super的用法</h3><p>与this用法类似，super.属性名可以访问到（有权限的）父类的属性</p>
-<ul>
-<li>super只能出现在子类的构造方法或者方法中</li>
-</ul>
-<h3 id="继承的构造方法"><a href="#继承的构造方法" class="headerlink" title="继承的构造方法"></a>继承的构造方法</h3><p>实例化对象时，不仅仅调用该类的构造方法，同时调用了其父类的无参构造方法</p>
-<ul>
-<li><del>如果父类没有无参构造方法，需要在子类构造方法中super();加上参数。</del> 一般不这么用，因为如果单独写出有参构造方法时，通常会再写一个无参构造方法</li>
-<li><em>调用父类的构造方法 super(); 一定要在类的构造方法的第一行</em></li>
-<li>super和this不能同时调用构造方法</li>
-</ul>
-<h5 id="源代码（子类）"><a href="#源代码（子类）" class="headerlink" title="源代码（子类）"></a>源代码（子类）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="comment">//构造方法：</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Teacher</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();<span class="comment">//该行代码隐藏，调用了父类的无参构造方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<blockquote>
-<p>在idea中，用户可使用快捷键 ctrl+h 层次结构 可以观察到类的所有父类</p>
-</blockquote>
-<h3 id="重写（Override）"><a href="#重写（Override）" class="headerlink" title="重写（Override）"></a>重写（Override）</h3><ul>
-<li>重写需要有继承关系，是子类继承父类的方法</li>
-<li>方法名和参数列表必须相同。（不相同则为方法的重载）</li>
-<li>重写都是方法的重写，和属性无关</li>
-<li>重写只跟非静态方法有关</li>
-<li>修饰符：范围可以扩大但不能缩小</li>
-<li>抛出的异常：范围可以缩小但不能扩大</li>
-</ul>
-<h5 id="为什么要重写"><a href="#为什么要重写" class="headerlink" title="为什么要重写"></a>为什么要重写</h5><p><em>父类的方法子类不一定需要或者不一定满足</em></p>
-<blockquote>
-<p>在idea中，可以通过快捷键alt+Insert选择Override进行重写</p>
-</blockquote>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>同一方法可以根据发送对象的不同 而采用多种不同的行为方式</p>
-<p> 多态存在的条件：</p>
-<ol>
-<li><p>有继承关系：只有继承关系才能多态，否则会类型转换异常（ClassCastException）</p>
-</li>
-<li><p>子类重写父类的方法</p>
-</li>
-<li><p>父类引用指向子类对象 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Father</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>多态的实现本质也是类型转换，是子类转成父类（低转高自动转换），在转换时无法使用子类独有方法（丢失方法）。而如果想用父类引用调用子类方法，也需要类型转换，是父类转子类（高到低强制类型转换），才能使用子类方法。</p>
-<p><em>注：被static、private、final修饰的方法不能重写，所以也不能多态</em></p>
-<h5 id="instanceof-（类型转换）"><a href="#instanceof-（类型转换）" class="headerlink" title="instanceof （类型转换）"></a>instanceof （类型转换）</h5><p>A instanceof B 是用来判断A是否是B的<em>实例对象</em>或者B子类的<em>实例对象</em></p>
-<p>instanceof的返回值为布尔类型，但是应该分为三种情况讨论</p>
-<ol>
-<li><p>返回值为true：A是B类的（及其子类）的<em>实例对象</em></p>
-</li>
-<li><p>返回值为false：A不是B类（及其子类）的<em>实例对象</em></p>
-</li>
-<li><p>在编译时报错：</p>
-<ul>
-<li>A使用了多态，A的引用类型与B类（及其子类）没有继承关系时就会在编译时报错。</li>
-</ul>
-</li>
-</ol>
 
       
     </div>

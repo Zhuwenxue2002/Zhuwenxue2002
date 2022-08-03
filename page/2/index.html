@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,6 +161,157 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/22/%E5%B0%81%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/22/%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">封装、继承、重写、多态</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-22 09:57:59" itemprop="dateCreated datePublished" datetime="2022-07-22T09:57:59+08:00">2022-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-24 19:41:59" itemprop="dateModified" datetime="2022-07-24T19:41:59+08:00">2022-07-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="封装、继承、重写、多态"><a href="#封装、继承、重写、多态" class="headerlink" title="封装、继承、重写、多态"></a>封装、继承、重写、多态</h1><h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><h3 id="封装（数据的隐藏）"><a href="#封装（数据的隐藏）" class="headerlink" title="封装（数据的隐藏）"></a>封装（数据的隐藏）</h3><ul>
+<li>通常，应禁止直接访问一个对象中数据的实际表示，而应该通过操作接口来访问，这称为信息隐藏。</li>
+</ul>
+<h3 id="封装的操作"><a href="#封装的操作" class="headerlink" title="封装的操作"></a>封装的操作</h3><ol>
+<li>将类中属性私有，利用修饰符private</li>
+<li>给私有属性写get&#x2F;set方法一次来获取&#x2F;修改属性</li>
+</ol>
+<blockquote>
+<p>在idea中，可以使用alt+Insert快捷键来快速生成私有属性的get&#x2F;set方法</p>
+</blockquote>
+<h3 id="封装的好处"><a href="#封装的好处" class="headerlink" title="封装的好处"></a>封装的好处</h3><ol>
+<li>提高程序的安全性，保护数据</li>
+<li>隐藏代码实现细节</li>
+<li>统一接口</li>
+<li>增加系统可维护性</li>
+</ol>
+<hr>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承的本质就是使子类能够使用其父类的（有权限的）属性或方法</p>
+<p><em>注：如果拿二叉树来类比，叶子节点则可以使用所有其祖先节点的属性和方法。</em></p>
+<ol>
+<li>继承的关键字时extends</li>
+<li>JAVA中，只有单继承，没有多继承，一个父类可以有多个子类，一个子类只能有一个父类（类似于树的结构）</li>
+<li>在JAVA中，所有的类都将间接或直接的继承object类</li>
+</ol>
+<h3 id="super的用法"><a href="#super的用法" class="headerlink" title="super的用法"></a>super的用法</h3><p>与this用法类似，super.属性名可以访问到（有权限的）父类的属性</p>
+<ul>
+<li>super只能出现在子类的构造方法或者方法中</li>
+</ul>
+<h3 id="继承的构造方法"><a href="#继承的构造方法" class="headerlink" title="继承的构造方法"></a>继承的构造方法</h3><p>实例化对象时，不仅仅调用该类的构造方法，同时调用了其父类的无参构造方法</p>
+<ul>
+<li><del>如果父类没有无参构造方法，需要在子类构造方法中super();加上参数。</del> 一般不这么用，因为如果单独写出有参构造方法时，通常会再写一个无参构造方法</li>
+<li><em>调用父类的构造方法 super(); 一定要在类的构造方法的第一行</em></li>
+<li>super和this不能同时调用构造方法</li>
+</ul>
+<h5 id="源代码（子类）"><a href="#源代码（子类）" class="headerlink" title="源代码（子类）"></a>源代码（子类）</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="comment">//构造方法：</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Teacher</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();<span class="comment">//该行代码隐藏，调用了父类的无参构造方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>在idea中，用户可使用快捷键 ctrl+h 层次结构 可以观察到类的所有父类</p>
+</blockquote>
+<h3 id="重写（Override）"><a href="#重写（Override）" class="headerlink" title="重写（Override）"></a>重写（Override）</h3><ul>
+<li>重写需要有继承关系，是子类继承父类的方法</li>
+<li>方法名和参数列表必须相同。（不相同则为方法的重载）</li>
+<li>重写都是方法的重写，和属性无关</li>
+<li>重写只跟非静态方法有关</li>
+<li>修饰符：范围可以扩大但不能缩小</li>
+<li>抛出的异常：范围可以缩小但不能扩大</li>
+</ul>
+<h5 id="为什么要重写"><a href="#为什么要重写" class="headerlink" title="为什么要重写"></a>为什么要重写</h5><p><em>父类的方法子类不一定需要或者不一定满足</em></p>
+<blockquote>
+<p>在idea中，可以通过快捷键alt+Insert选择Override进行重写</p>
+</blockquote>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>同一方法可以根据发送对象的不同 而采用多种不同的行为方式</p>
+<p> 多态存在的条件：</p>
+<ol>
+<li><p>有继承关系：只有继承关系才能多态，否则会类型转换异常（ClassCastException）</p>
+</li>
+<li><p>子类重写父类的方法</p>
+</li>
+<li><p>父类引用指向子类对象 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Father</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>多态的实现本质也是类型转换，是子类转成父类（低转高自动转换），在转换时无法使用子类独有方法（丢失方法）。而如果想用父类引用调用子类方法，也需要类型转换，是父类转子类（高到低强制类型转换），才能使用子类方法。</p>
+<p><em>注：被static、private、final修饰的方法不能重写，所以也不能多态</em></p>
+<h5 id="instanceof-（类型转换）"><a href="#instanceof-（类型转换）" class="headerlink" title="instanceof （类型转换）"></a>instanceof （类型转换）</h5><p>A instanceof B 是用来判断A是否是B的<em>实例对象</em>或者B子类的<em>实例对象</em></p>
+<p>instanceof的返回值为布尔类型，但是应该分为三种情况讨论</p>
+<ol>
+<li><p>返回值为true：A是B类的（及其子类）的<em>实例对象</em></p>
+</li>
+<li><p>返回值为false：A不是B类（及其子类）的<em>实例对象</em></p>
+</li>
+<li><p>在编译时报错：</p>
+<ul>
+<li>A使用了多态，A的引用类型与B类（及其子类）没有继承关系时就会在编译时报错。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -969,95 +1120,6 @@
 <li>尽量使用英文</li>
 <li>文件名和类名要保证一致</li>
 <li>符号使用了中文</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/19/JAVA%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaobai">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="小白的笔记存档">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/19/JAVA%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">JAVA开发环境搭建</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-19 10:26:34" itemprop="dateCreated datePublished" datetime="2022-07-19T10:26:34+08:00">2022-07-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-24 19:42:48" itemprop="dateModified" datetime="2022-07-24T19:42:48+08:00">2022-07-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="JAVA开发环境搭建"><a href="#JAVA开发环境搭建" class="headerlink" title="JAVA开发环境搭建"></a>JAVA开发环境搭建</h1><h2 id="JDK、JRE、JVM的区别"><a href="#JDK、JRE、JVM的区别" class="headerlink" title="JDK、JRE、JVM的区别"></a>JDK、JRE、JVM的区别</h2><p>JDK： Java Development Kit<br>JRE： Java Runtime Environment<br>JVM： JAVA Virtual Machine</p>
-<p>JDK是面对开发者，JRE面对用户，JDK包括JRE</p>
-<h2 id="jdk的安装"><a href="#jdk的安装" class="headerlink" title="jdk的安装"></a>jdk的安装</h2><ol>
-<li>下载jdk8安装包，<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java8-windows">JDK8下载链接</a></li>
-<li>双击安装JDK（这里要选择完整安装，否则会出现没有jre的情况）</li>
-<li>记住安装路径</li>
-<li>配置环境变量<ol>
-<li>右键此电脑-属性-高级系统设置-环境变量</li>
-<li>新建系统变量-变量名称为JAVA_HOME 变量为java根目录地址</li>
-<li>配置PATH变量分别为为%JAVA_HOME%\bin 和 %JAVA_HOME%\jre\bin</li>
-</ol>
-</li>
-<li>使用java -version测试JAVA是否安装成功</li>
 </ol>
 
       
