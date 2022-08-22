@@ -206,7 +206,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-09 21:13:39" itemprop="dateModified" datetime="2022-08-09T21:13:39+08:00">2022-08-09</time>
+      <time title="修改时间：2022-08-22 13:51:44" itemprop="dateModified" datetime="2022-08-22T13:51:44+08:00">2022-08-22</time>
     </span>
 
   
@@ -220,6 +220,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h3 id="集合的体系结构"><a href="#集合的体系结构" class="headerlink" title="集合的体系结构"></a>集合的体系结构</h3><p><img src="/2022/07/29/%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6/1.png"></p>
+<p><em>注：如果想要将基本类型存入集合，需要用基本类型包装类存入</em></p>
 <h1 id="Collection-集合"><a href="#Collection-集合" class="headerlink" title="Collection 集合"></a>Collection 集合</h1><p><em>Collection是一个接口</em></p>
 <ul>
 <li>Collection是单列集合的顶层接口，它表示一组对象，这些对象也称为Collection元素</li>
@@ -413,15 +414,61 @@
 <h1 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h1><p>Set接口是继承于Collection接口</p>
 <ul>
 <li>Set集合中不包含重复元素的集合</li>
-<li>没有带索引的方法，所以不能使用普通for循环进行遍历</li>
+<li>没有带索引的方法，所以不能使用<strong>普通</strong>for循环进行遍历</li>
 </ul>
+<hr>
 <h3 id="HashSet-实现类"><a href="#HashSet-实现类" class="headerlink" title="HashSet 实现类"></a>HashSet 实现类</h3><p>HashSet 实现类是继承于Set接口和Collection接口，在其中重写了Collection接口的方法</p>
 <p><em>HashSet’实现类对集合的迭代顺序不做任何保证</em></p>
 <h3 id="Hash值"><a href="#Hash值" class="headerlink" title="Hash值"></a>Hash值</h3><p>哈希值：是JDK根据对象的地址或者字符串或者数字计算出来的int类型的值</p>
 <p>object类中的int hashCode()方法可以获取对象的哈希值</p>
 <p>默认情况下，不同对象的哈希值是不同的</p>
 <p><em>通过方法重写，可以实现不同对象的哈希值是相同的</em></p>
-<p>xiaobai测试</p>
+<h3 id="HashSet集合的概述和特点"><a href="#HashSet集合的概述和特点" class="headerlink" title="HashSet集合的概述和特点"></a>HashSet集合的概述和特点</h3><p>HashSet特点</p>
+<ul>
+<li>底层数据结构是哈希表</li>
+<li>对集合的迭代顺序不做任何保证，也就是说不保证存储和取出的元素顺序一致</li>
+<li>Set集合中不包含重复元素的集合</li>
+<li>没有带索引的方法，所以不能使用<strong>普通</strong>for循环进行遍历</li>
+</ul>
+<p><em>注：HashSet集合类也继承于Set接口，所以继承Set集合特点</em></p>
+<h5 id="存储流程"><a href="#存储流程" class="headerlink" title="存储流程*"></a>存储流程*</h5><ol>
+<li>i获取对象的hash值，计算其地址判断有没有值</li>
+<li>如果有值，就遍历该位置的所有的元素，判断哈希值是否与新元素相同</li>
+<li>如果相同，判断元素内容是否相等（equals()）</li>
+<li>如果相等，说明元素重复，不存储</li>
+</ol>
+<p><em>注：HashSet的数据结构用拉链法，也就是说同一个hash值算出的地址可以存储多个元素</em></p>
+<h5 id="保证HashSet元素唯一性"><a href="#保证HashSet元素唯一性" class="headerlink" title="保证HashSet元素唯一性"></a>保证HashSet元素唯一性</h5><p>HashSet集合，采用哈希表结构存储数据，保证元素唯一性的方式依赖于：hashCode()与equals()方法。</p>
+<ol>
+<li>HashSet集合排重时，需要判断两个对象是否相同，对象相同的判断可以通过hashCode值判断，所以需要重写hashCode()方法</li>
+<li>HashSet中不能有相同的元素，放入一个值调用hashCode()（获取位置）是否重复，然后用equals判断是否为重复值。</li>
+<li>如果只重写其中一个方法的时候，向HashSet集合中添加多个对象时，所有属性都相同时，并没有完成想要的排重效果。</li>
+</ol>
+<p><em><strong>情况一：当我们往HashSet集合中添加 8大基本类型和String类型的时候，不需要重写hashCode()和equals()方法。因为任何对象都是Object类的子类，所以任何对象都拥有这个方法。</strong></em><br><em><strong>情况二：当我们往HashSet集合添加引用数据类型对象的时候，就需要重写hashCode()和equals()方法。建立自己的比较方式，才能保证HashSet集合中的对象唯一。</strong></em></p>
+<hr>
+<h3 id="LinkedHashSet集合的概述和特点"><a href="#LinkedHashSet集合的概述和特点" class="headerlink" title="LinkedHashSet集合的概述和特点"></a>LinkedHashSet集合的概述和特点</h3><p>LinkedHashSet集合特点</p>
+<ul>
+<li>哈希表和链表实现Set接口，具有可预测的迭代次序</li>
+<li><strong>由链表保证元素有序，也就是说元素的存储和取出顺序是一致的</strong></li>
+<li>有哈希表保证元素唯一，也就是说没有重复的元素</li>
+</ul>
+<hr>
+<h3 id="TreeSet集合的概述和特点"><a href="#TreeSet集合的概述和特点" class="headerlink" title="TreeSet集合的概述和特点"></a>TreeSet集合的概述和特点</h3><p>TreeSet集合特点</p>
+<ul>
+<li><p>元素有序，这里的顺序不是指元素位置上有序，而是按照元素本身的关系进行排序，排序规则方式取决于构造方法</p>
+<ul>
+<li>TreeSet()：根据元素自然排序进行排序</li>
+<li>TreeSet(Comparator comparator)：根据指定的比较器进行排序</li>
+</ul>
+<p><em>comparator英文释义：比较器</em></p>
+</li>
+<li><p>没有带索引的方法，所以不能使用<strong>普通</strong>for循环进行遍历</p>
+</li>
+<li><p>继承Set集合，不包含重复元素</p>
+</li>
+</ul>
+<p><em>注：TreeSet有些类似于二叉排序树</em> </p>
+<hr>
 
       
     </div>
