@@ -28,7 +28,7 @@
 <meta property="og:description" content="内部类（选修）源代码内部类定义 123456789101112public class Outer &amp;#123;            private int id &#x3D; 10; &#x2F;&#x2F;外部类中私有属性            public void out()&amp;#123;                &#x2F;&#x2F;这是一个外部类方法            &amp;#125;            public cl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-24T11:45:09.000Z">
-<meta property="article:modified_time" content="2022-07-24T12:24:36.000Z">
+<meta property="article:modified_time" content="2022-08-23T06:25:05.581Z">
 <meta property="article:author" content="Xiaobai">
 <meta property="article:tag" content="JAVA">
 <meta name="twitter:card" content="summary">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%88%E9%80%89%E4%BF%AE%EF%BC%89"><span class="nav-text">内部类（选修）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-text">源代码</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%88%E9%80%89%E4%BF%AE%EF%BC%89"><span class="nav-text">内部类（选修）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-text">源代码</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%88%E5%BF%85%E4%BF%AE%EF%BC%89"><span class="nav-text">匿名内部类（必修）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8%E7%B1%BB%E4%B8%AD%E6%96%B9%E6%B3%95"><span class="nav-text">直接调用类中方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">在开发中的使用*</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -203,9 +203,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-24 19:45:09 / 修改时间：20:24:36" itemprop="dateCreated datePublished" datetime="2022-07-24T19:45:09+08:00">2022-07-24</time>
+      <time title="创建时间：2022-07-24 19:45:09" itemprop="dateCreated datePublished" datetime="2022-07-24T19:45:09+08:00">2022-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-23 14:25:05" itemprop="dateModified" datetime="2022-08-23T14:25:05+08:00">2022-08-23</time>
     </span>
 
   
@@ -226,16 +232,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Outer</span> <span class="variable">outer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Outer</span>();</span><br><span class="line">Outer.<span class="type">Inner</span> <span class="variable">inner</span> <span class="operator">=</span> outer.<span class="keyword">new</span> <span class="title class_">Inner</span>(); <span class="comment">//利用外部类定义的对象outer来实例化内部类</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>匿名内部类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Outer</span>().out; <span class="comment">//不实例化对象，只初始化类，也可以调用类中方法</span></span><br></pre></td></tr></table></figure>
-
-<p>new 接口直接给一个接口的对象，在执行体内重写方法，也叫做匿名内部类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">UserService</span> <span class="variable">userService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserService</span>()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span><span class="params">()</span> &#123; <span class="comment">//重写hello方法</span></span><br><span class="line">                System.out.println(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        userService.hello();<span class="comment">//可通过引用变量userService调用接口中重写过的方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> <span class="title class_">UserService</span>&#123; <span class="comment">//一个接口</span></span><br><span class="line">        <span class="keyword">void</span> <span class="title function_">hello</span><span class="params">()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="匿名内部类（必修）"><a href="#匿名内部类（必修）" class="headerlink" title="匿名内部类（必修）"></a>匿名内部类（必修）</h1><p>匿名内部类是一个继承了该类或者实现了该接口的子类匿名对象</p>
+<p><em>这里的类可以是具体类也可以是抽象类</em></p>
+<h3 id="直接调用类中方法"><a href="#直接调用类中方法" class="headerlink" title="直接调用类中方法"></a>直接调用类中方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Outer</span>().out; <span class="comment">//不实例化对象，只初始化类，也可以调用类中方法</span></span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="在开发中的使用"><a href="#在开发中的使用" class="headerlink" title="在开发中的使用*"></a>在开发中的使用*</h3><p>new 接口直接给一个接口的对象，在执行体内重写方法，也叫做匿名内部类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">//多态，接口引用指向匿名内部类对象</span></span><br><span class="line">        <span class="type">UserService</span> <span class="variable">userService</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserService</span>()&#123;</span><br><span class="line">            <span class="comment">//重写hello方法</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hello</span><span class="params">()</span> &#123; </span><br><span class="line">                System.out.println(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">//可通过引用变量userService调用接口中重写过的方法</span></span><br><span class="line">        userService.hello();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">interface</span> <span class="title class_">UserService</span>&#123; <span class="comment">//一个接口</span></span><br><span class="line">        <span class="keyword">void</span> <span class="title function_">hello</span><span class="params">()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<hr>
 
     </div>
 

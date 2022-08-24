@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="接口接口的目的就是定义一些方法，让不同的人实现  普通类：只有具体实现 抽象类：具体实现和规范（抽象方法）都有 接口：只有规范，没有具体实现 注：抽象类和接口虽然都无法实例化对象，但是他有构造方法，而接口没有 java规定类都要有一个构造方法,没有默认提供一个空参构造（抽象类也是类）。构造方法不是用来实例化的,而是用来给属性初始化赋值的,抽象方法可以定义属性（抽象和普通）,那么就需要构造方法（有参">
+    <meta name="description" content="接口接口的目的就是定义一些方法，让不同的人实现 注：接口可以作为方法的形参或者返回值，需要和返回的都是该接口的实现类对象  普通类：只有具体实现 抽象类：具体实现和规范（抽象方法）都有 接口：只有规范，没有具体实现 注：抽象类和接口虽然都无法实例化对象，但是他有构造方法，而接口没有 java规定类都要有一个构造方法,没有默认提供一个空参构造（抽象类也是类）。构造方法不是用来实例化的,而是用来给属性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="接口">
 <meta property="og:url" content="http://example.com/2022/07/24/%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="为了猪猪能吃到肉肉而学习！">
-<meta property="og:description" content="接口接口的目的就是定义一些方法，让不同的人实现  普通类：只有具体实现 抽象类：具体实现和规范（抽象方法）都有 接口：只有规范，没有具体实现 注：抽象类和接口虽然都无法实例化对象，但是他有构造方法，而接口没有 java规定类都要有一个构造方法,没有默认提供一个空参构造（抽象类也是类）。构造方法不是用来实例化的,而是用来给属性初始化赋值的,抽象方法可以定义属性（抽象和普通）,那么就需要构造方法（有参">
+<meta property="og:description" content="接口接口的目的就是定义一些方法，让不同的人实现 注：接口可以作为方法的形参或者返回值，需要和返回的都是该接口的实现类对象  普通类：只有具体实现 抽象类：具体实现和规范（抽象方法）都有 接口：只有规范，没有具体实现 注：抽象类和接口虽然都无法实例化对象，但是他有构造方法，而接口没有 java规定类都要有一个构造方法,没有默认提供一个空参构造（抽象类也是类）。构造方法不是用来实例化的,而是用来给属性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-24T10:36:56.000Z">
-<meta property="article:modified_time" content="2022-07-24T11:39:26.000Z">
+<meta property="article:modified_time" content="2022-08-23T06:22:20.431Z">
 <meta property="article:author" content="Xiaobai">
 <meta property="article:tag" content="JAVA">
 <meta name="twitter:card" content="summary">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-text">接口</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">匿名内部类与接口的实现</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -203,9 +203,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-24 18:36:56 / 修改时间：19:39:26" itemprop="dateCreated datePublished" datetime="2022-07-24T18:36:56+08:00">2022-07-24</time>
+      <time title="创建时间：2022-07-24 18:36:56" itemprop="dateCreated datePublished" datetime="2022-07-24T18:36:56+08:00">2022-07-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-23 14:22:20" itemprop="dateModified" datetime="2022-08-23T14:22:20+08:00">2022-08-23</time>
     </span>
 
   
@@ -219,6 +225,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p><strong>接口的目的就是定义一些方法，让不同的人实现</strong></p>
+<p><em>注：接口可以作为方法的形参或者返回值，需要和返回的都是该接口的实现类对象</em></p>
 <hr>
 <p>普通类：只有具体实现</p>
 <p>抽象类：具体实现和规范（抽象方法）都有</p>
@@ -228,18 +235,15 @@
 <p><em>还可以从另一个角度理解，抽象类必须有实现类继承（extends）来实现，<strong>初始化一个子类会先初始化父类</strong>。所以抽象类要有构造方法</em></p>
 <hr>
 <ul>
-<li><p>接口的关键字为：interface</p>
-</li>
-<li><p>接口都需要有实现类，关键字：implements </p>
-</li>
-<li><p>接口中的方法都默认（且必须）带有修饰符public abstract</p>
-</li>
-<li><p>接口中的属性都默认（且必须）带有修饰符public static final</p>
-</li>
-<li><p>implements可以实现多个接口</p>
-</li>
-<li><p>和抽象类相同，在实现类中必须要重写接口中所有方法（默认为抽象方法）</p>
-</li>
+<li>接口的关键字为：interface</li>
+<li>接口都需要有实现类，关键字：implements</li>
+</ul>
+<p><em>implements英文释义：使生效，贯彻，执行</em></p>
+<ul>
+<li>接口中的方法都默认（且必须）带有修饰符public abstract</li>
+<li>接口中的属性都默认（且必须）带有修饰符public static final</li>
+<li>implements可以实现多个接口</li>
+<li>和抽象类相同，在实现类中必须要重写接口中所有方法（默认为抽象方法）</li>
 </ul>
 <hr>
 <p>接口UserService</p>
@@ -254,6 +258,10 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">UserService</span>,TimeService&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">timer</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(String name)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">delete</span><span class="params">(String name)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(String name)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">query</span><span class="params">(String name)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
+<h3 id="匿名内部类与接口的实现"><a href="#匿名内部类与接口的实现" class="headerlink" title="匿名内部类与接口的实现"></a>匿名内部类与接口的实现</h3><p>接口无法直接实例化对象，因为没有构造方法。只能通过实现类重写接口方法之后，用实现类来实例化对象。这里可以使用多态，和匿名内部类来操作：</p>
+<p><strong>接口引用指向匿名内部类（父类引用指向子类对象）</strong></p>
+<p>可以虚假的实现 “接口实例化对象” </p>
+<p>具体操作可以看匿名内部类笔记</p>
 
     </div>
 
