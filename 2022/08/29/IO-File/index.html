@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="FileFile：他是文件和目录路径名的抽象表示  文件和目录是可以通过File封装成对象的 对于File而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已，它可以是存在的，也可以是不存在的。将来是要通过具体的操作把这个路径的内容转换为具体存在的  构造方法：   方法名 说明    File(String pathname) 通过将给定的路径名子字符串转换为抽象路径名来创建新的File">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IO-File">
+<meta property="og:url" content="http://example.com/2022/08/29/IO-File/index.html">
+<meta property="og:site_name" content="为了猪猪能吃到肉肉而学习！">
+<meta property="og:description" content="FileFile：他是文件和目录路径名的抽象表示  文件和目录是可以通过File封装成对象的 对于File而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已，它可以是存在的，也可以是不存在的。将来是要通过具体的操作把这个路径的内容转换为具体存在的  构造方法：   方法名 说明    File(String pathname) 通过将给定的路径名子字符串转换为抽象路径名来创建新的File">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-29T00:49:33.000Z">
+<meta property="article:modified_time" content="2022-08-30T05:57:49.381Z">
+<meta property="article:author" content="Xiaobai">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/08/29/IO-File/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/29/IO-File/","path":"2022/08/29/IO-File/","title":"IO-File"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>IO-File | 为了猪猪能吃到肉肉而学习！</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">为了猪猪能吃到肉肉而学习！</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">破楚吞吴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File"><span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-text">构造方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%8A%9F%E8%83%BD"><span class="nav-text">File类创建功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File%E7%B1%BB%E7%9A%84%E5%88%A4%E6%96%AD%E5%92%8C%E8%8E%B7%E5%8F%96%E5%8A%9F%E8%83%BD"><span class="nav-text">File类的判断和获取功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File%E7%B1%BB%E5%88%A0%E9%99%A4%E5%8A%9F%E8%83%BD"><span class="nav-text">File类删除功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File%E7%B1%BB%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6"><span class="nav-text">File类递归遍历目录下所有文件</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xiaobai</p>
+  <div class="site-description" itemprop="description">小白的笔记存档</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/29/IO-File/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="IO-File | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IO-File
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-29 08:49:33" itemprop="dateCreated datePublished" datetime="2022-08-29T08:49:33+08:00">2022-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-30 13:57:49" itemprop="dateModified" datetime="2022-08-30T13:57:49+08:00">2022-08-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="File"><a href="#File" class="headerlink" title="File"></a>File</h1><p>File：他是文件和目录路径名的抽象表示</p>
+<ul>
+<li>文件和目录是可以通过File封装成对象的</li>
+<li>对于File而言，其封装的并不是一个真正存在的文件，仅仅是一个路径名而已，它可以是存在的，也可以是不存在的。将来是要通过具体的操作把这个路径的内容转换为具体存在的</li>
+</ul>
+<h3 id="构造方法："><a href="#构造方法：" class="headerlink" title="构造方法："></a>构造方法：</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File(String pathname)</td>
+<td>通过将给定的路径名子字符串转换为抽象路径名来创建新的File实例</td>
+</tr>
+<tr>
+<td>File(String parent,String child)</td>
+<td>从父路径名 字符串和子路径名 字符串创建新的File实例</td>
+</tr>
+<tr>
+<td>File(File parent,String child)</td>
+<td>从父路径名和子路径名 字符串创建新的File实例</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\JAVA学习\\IO\\java.txt&quot;</span>);</span><br><span class="line">        System.out.println(f1);</span><br><span class="line">        <span class="type">File</span> <span class="variable">f2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\JAVA学习\\IO&quot;</span>,<span class="string">&quot;java.txt&quot;</span>);</span><br><span class="line">        System.out.println(f2);</span><br><span class="line">        <span class="type">File</span> <span class="variable">f3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\JAVA学习\\IO&quot;</span>);</span><br><span class="line">        <span class="type">File</span> <span class="variable">f4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(f3,<span class="string">&quot;java.txt&quot;</span>);</span><br><span class="line">        System.out.println(f4);</span><br><span class="line">        <span class="comment">//以上内容全部输出为G:\JAVA学习\IO\java.txt</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="File类创建功能"><a href="#File类创建功能" class="headerlink" title="File类创建功能"></a>File类创建功能</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean createNewFile()</td>
+<td>当具有该名称的文件不存在时，创建一个由该抽象路径名命名的新空文件</td>
+</tr>
+<tr>
+<td>boolean mkdir()</td>
+<td>创建由此抽象路径名名命的目录</td>
+</tr>
+<tr>
+<td>boolean mkdirs()</td>
+<td>创建由此抽象路径名名命的目录，包括任何必须但不存在的父目录</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">f1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\JAVA学习\\java.txt&quot;</span>);</span><br><span class="line">        <span class="comment">//如果文件不存在，就创建文件并返回true，如果文件存在就返回false</span></span><br><span class="line">        System.out.println(f1.createNewFile());</span><br><span class="line">        <span class="comment">//如果目录不存在，就创建目录并返回true，如果目录存在就返回false</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">f2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\JAVA学习\\Hellow world&quot;</span>);</span><br><span class="line">        System.out.println(f2.mkdir());</span><br><span class="line">        <span class="comment">//多级目录需要用mkdirs 不可以用mkdir</span></span><br><span class="line">        <span class="type">File</span> <span class="variable">f3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;G:\\JAVA学习\\Java Web\\Html&quot;</span>);</span><br><span class="line">        <span class="comment">//System.out.println(f3.mkdir());</span></span><br><span class="line">        System.out.println(f3.mkdirs());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>注：用mkdir()创建java.txt仍能成功，只不过是建立了名为java.txt的目录</em></p>
+<p><em>在有名为java.txt名字的目录时，创建java.txt名字的文件则会失败，哪怕一个是目录一个是文件也不能同名</em></p>
+<p><em>创建文件时如果找不到指定上级目录也会存在异常</em></p>
+<h3 id="File类的判断和获取功能"><a href="#File类的判断和获取功能" class="headerlink" title="File类的判断和获取功能"></a>File类的判断和获取功能</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean is Directory()</td>
+<td>测试此抽象路径名表示的File是否为目录</td>
+</tr>
+<tr>
+<td>boolean isFile()</td>
+<td>测试此抽象路径名表示的File是否为文件</td>
+</tr>
+<tr>
+<td>Boolean exists()</td>
+<td>测试此抽象路径名表示的File是否存在</td>
+</tr>
+<tr>
+<td>String getAbsolutePath()</td>
+<td>返回此抽象路径名的绝对路径名 字符串</td>
+</tr>
+<tr>
+<td>String getPath()</td>
+<td>返回此抽象路径名的路径名 字符串</td>
+</tr>
+<tr>
+<td>String getName()</td>
+<td>返回此抽象路径名表示的文件或目录的名称</td>
+</tr>
+<tr>
+<td>String[] list()</td>
+<td>返回此抽象路径名表示的目录中的文件和目录的名称字符串数组</td>
+</tr>
+<tr>
+<td>File[] listFiles()</td>
+<td>返回此抽象路径名表示的目录中的文件和目录的File对象数组</td>
+</tr>
+</tbody></table>
+<p><em>exists英文释义：存在，实际上有</em></p>
+<p><em>absolute英文释义：绝对的，绝对</em></p>
+<h3 id="File类删除功能"><a href="#File类删除功能" class="headerlink" title="File类删除功能"></a>File类删除功能</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean delet()</td>
+<td>删除由此有抽象路径名表示的文件或目录</td>
+</tr>
+</tbody></table>
+<p>绝对路径和相对路径的区别</p>
+<ul>
+<li>绝对路径：完整的目录名,不需要任何其他信息就可以定位她所表示的文件</li>
+<li>相对路径：必须使用取自其他路径名的信息进行解释，例如模块名\\文件名</li>
+</ul>
+<p><em>注：如果一个目录中有内容（子目录或者文件），不能直接删除。应该先删除目录中的内容，最后才能删除目录</em></p>
+<h3 id="File类递归遍历目录下所有文件"><a href="#File类递归遍历目录下所有文件" class="headerlink" title="File类递归遍历目录下所有文件"></a>File类递归遍历目录下所有文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">srcFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;src&quot;</span>);</span><br><span class="line">        getAllFilePath(srcFile);<span class="comment">//调用递归方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">getAllFilePath</span><span class="params">(File srcFile)</span>&#123;</span><br><span class="line">        File[] files = srcFile.listFiles();<span class="comment">//把File类对象转换成File类型的数组</span></span><br><span class="line">        <span class="keyword">if</span> (files != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (File file : files) &#123;<span class="comment">//遍历数组</span></span><br><span class="line">                <span class="keyword">if</span> (file.isDirectory())</span><br><span class="line">                &#123;</span><br><span class="line">                    getAllFilePath(file);<span class="comment">//如果是目录，则递归调用方法</span></span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.println(file.getAbsolutePath());<span class="comment">//如果是文件，则获取绝对路径并输出</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/26/%E9%9B%86%E5%90%88%E8%BF%9B%E9%98%B6-Collections/" rel="prev" title="集合进阶-Collections">
+                  <i class="fa fa-chevron-left"></i> 集合进阶-Collections
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/08/30/IO-%E5%AD%97%E8%8A%82%E6%B5%81/" rel="next" title="IO-流">
+                  IO-流 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaobai</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
