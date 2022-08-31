@@ -198,9 +198,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-30 13:57:22 / 修改时间：15:25:46" itemprop="dateCreated datePublished" datetime="2022-08-30T13:57:22+08:00">2022-08-30</time>
+      <time title="创建时间：2022-08-30 13:57:22" itemprop="dateCreated datePublished" datetime="2022-08-30T13:57:22+08:00">2022-08-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-31 20:40:03" itemprop="dateModified" datetime="2022-08-31T20:40:03+08:00">2022-08-31</time>
     </span>
 
   
@@ -239,23 +245,24 @@
 </ul>
 <h1 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h1><h3 id="字节流写数据"><a href="#字节流写数据" class="headerlink" title="字节流写数据"></a>字节流写数据</h3><p>字节流抽象基类</p>
 <ul>
-<li><p>InputStream：这个<strong>抽象类</strong>是表示字节输出流的所有类的超类</p>
-</li>
-<li><p>OutputString：这个<strong>抽象类</strong>是表示字节输出流的所有类的超类</p>
-</li>
-<li><p>子类名特点：子类名称都是以其父类名作为子类名的后缀</p>
-</li>
+<li>InputStream：这个<strong>抽象类</strong>是表示字节输入流的所有类的超类</li>
+<li>OutputString：这个<strong>抽象类</strong>是表示字节输出流的所有类的超类</li>
+<li>子类名特点：子类名称都是以其父类名作为子类名的后缀</li>
 </ul>
+<p><em>输入就是读，输出就是写</em></p>
 <p>FileOutputStream：文件输出流 用于将数据写入File</p>
 <ul>
 <li>FileOutputStream(String name)：创建文件输出流以指定的名称写入文件</li>
 </ul>
 <p>使用字节流写数据的步骤：</p>
-<ul>
-<li>创建字节流输出对象</li>
-<li>调用字节输出流对象的写数据方法</li>
-<li>释放资源(关闭此文件输出流并释放与此流相关联的任何系统资源)</li>
-</ul>
+<ol>
+<li><p>创建字节流输出对象</p>
+</li>
+<li><p>调用字节输出流对象的写数据方法</p>
+</li>
+<li><p>释放资源(关闭此文件输出流并释放与此流相关联的任何系统资源)</p>
+</li>
+</ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;fos.txt&quot;</span>);</span><br><span class="line">        fos.write(<span class="number">97</span>);</span><br><span class="line">        fos.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -300,6 +307,30 @@
 <p>特点：被finally控制的语句一定会执行，除非JVM退出</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>  &#123;</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">byte</span>[] bys = <span class="string">&quot;abcde&quot;</span>.getBytes();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fos = <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;fos.txt&quot;</span>);</span><br><span class="line">            <span class="comment">//fos.write(bys);//abcde</span></span><br><span class="line">            fos.write(bys,<span class="number">1</span>,<span class="number">3</span>);<span class="comment">//bcd</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fos != <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fos.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<h3 id="字节流读数据（一次读一个字节数据）"><a href="#字节流读数据（一次读一个字节数据）" class="headerlink" title="字节流读数据（一次读一个字节数据）"></a>字节流读数据（一次读一个字节数据）</h3><p>FileInputStream：从文件系统中的文件获取输入字节</p>
+<ul>
+<li>FileInputStream(String name)：通过打开与实际文件的链接来创建一个FileInputStream，该文件由系统中的路径名name命名</li>
+</ul>
+<p>使用字节输入流读数据的步骤：</p>
+<ol>
+<li>创建字节输入流对象</li>
+<li>调用字节输入流对象的读数据方法</li>
+<li>释放资源</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;fis.txt&quot;</span>);</span><br><span class="line"><span class="comment">//        System.out.println(fis.read());</span></span><br><span class="line"><span class="comment">//        System.out.println((char) fis.read());</span></span><br><span class="line">		<span class="comment">//遍历文件中所有字节流</span></span><br><span class="line">        <span class="type">int</span> by;</span><br><span class="line">        <span class="keyword">while</span> ((by = fis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.print((<span class="type">char</span>) by);</span><br><span class="line">        &#125;</span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="案例：复制文本文件"><a href="#案例：复制文本文件" class="headerlink" title="案例：复制文本文件"></a>案例：复制文本文件</h5><p>要求：复制字节流fis.txt到fos.txt中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;fos.txt&quot;</span>);</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;fis.txt&quot;</span>);</span><br><span class="line">        <span class="type">int</span> by;</span><br><span class="line">        <span class="keyword">while</span> ((by = fis.read()) != -<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            fos.write(by);</span><br><span class="line">        &#125;</span><br><span class="line">        fos.close();</span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="字节流读数据（一次读一个字节数组数据）"><a href="#字节流读数据（一次读一个字节数组数据）" class="headerlink" title="字节流读数据（一次读一个字节数组数据）"></a>字节流读数据（一次读一个字节数组数据）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;fis.txt&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] b = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = fis.read(b)) != -<span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(<span class="keyword">new</span> <span class="title class_">java</span>.lang.String(b,<span class="number">0</span>,len));</span><br><span class="line">        &#125;</span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="案例：复制图片"><a href="#案例：复制图片" class="headerlink" title="案例：复制图片"></a>案例：复制图片</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;1.jpg&quot;</span>);</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;2.jpg&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] b = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = fis.read(b)) != -<span class="number">1</span>)&#123;</span><br><span class="line">            fos.write(b,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line">        fos.close();</span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
 
       
     </div>
