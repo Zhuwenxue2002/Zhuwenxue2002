@@ -132,7 +132,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -206,7 +206,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-31 20:40:03" itemprop="dateModified" datetime="2022-08-31T20:40:03+08:00">2022-08-31</time>
+      <time title="修改时间：2022-09-04 17:51:29" itemprop="dateModified" datetime="2022-09-04T17:51:29+08:00">2022-09-04</time>
     </span>
 
   
@@ -331,6 +331,26 @@
 <h5 id="案例：复制图片"><a href="#案例：复制图片" class="headerlink" title="案例：复制图片"></a>案例：复制图片</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;1.jpg&quot;</span>);</span><br><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;2.jpg&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] b = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = fis.read(b)) != -<span class="number">1</span>)&#123;</span><br><span class="line">            fos.write(b,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line">        fos.close();</span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
+<h3 id="字节缓冲流"><a href="#字节缓冲流" class="headerlink" title="字节缓冲流"></a>字节缓冲流</h3><p><em>buffer英文释义：缓冲器</em></p>
+<ul>
+<li><p>BufferedOutputStream：该类实现缓冲输出流。通过设置这样的输出流，应用程序可向底层输出流写入字节，而不必为写入每个字节调用系统底层</p>
+</li>
+<li><p>BufferedInputStream：将创建一个内部缓冲区数组。当从流中读取或跳过字节时，内部缓冲区将根据需要从所包含的输入流中充数据，一次很多字节</p>
+</li>
+</ul>
+<p>构造方法：</p>
+<ul>
+<li>字节缓冲输出流：BufferedOutputStream(OutputStream out)</li>
+<li>字节缓冲输出流：BufferedInputStream(InputStream in)</li>
+</ul>
+<p>为什么构造方法需要的是字节流，而不是具体的文件或者路径呢？</p>
+<ul>
+<li>字节缓冲流<strong>仅仅提供缓冲区</strong>，而真正的读写数据还得依靠基本的字节流对象进行操作</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">BufferedOutputStream</span> <span class="variable">bos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;bos.txt&quot;</span>));</span><br><span class="line">        bos.write(<span class="string">&quot;hello\r\n&quot;</span>.getBytes());</span><br><span class="line">        bos.close();</span><br><span class="line">        <span class="type">BufferedInputStream</span> <span class="variable">bis</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;bos.txt&quot;</span>));</span><br><span class="line">        <span class="comment">//方法一：</span></span><br><span class="line">        <span class="type">int</span> by;</span><br><span class="line">        <span class="keyword">while</span> ((by = bis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.print((<span class="type">char</span>) by);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//方法二：</span></span><br><span class="line">        <span class="type">byte</span>[] b = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len= bis.read(b))!=-<span class="number">1</span>)&#123;</span><br><span class="line">            System.out.print(<span class="keyword">new</span> <span class="title class_">String</span>(b, <span class="number">0</span>, len));</span><br><span class="line">        &#125;</span><br><span class="line">        bis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><em>注：字节流读数据时，fos.read()方法中如果没有参数，则读取一个数据，返回值为该数据的int类型assic码。如果参数为字节数组，则把数据写入到字节数组中，返回值为int类型的长度len</em></p>
 
       
     </div>
@@ -583,7 +603,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-30 13:59:20" itemprop="dateModified" datetime="2022-08-30T13:59:20+08:00">2022-08-30</time>
+      <time title="修改时间：2022-09-06 08:19:24" itemprop="dateModified" datetime="2022-09-06T08:19:24+08:00">2022-09-06</time>
     </span>
 
   
@@ -1009,7 +1029,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-30 13:56:13" itemprop="dateModified" datetime="2022-08-30T13:56:13+08:00">2022-08-30</time>
+      <time title="修改时间：2022-09-06 08:18:47" itemprop="dateModified" datetime="2022-09-06T08:18:47+08:00">2022-09-06</time>
     </span>
 
   
