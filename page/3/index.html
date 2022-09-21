@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -161,6 +161,106 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/20/Scanner%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaobai">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="小白的笔记存档">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 为了猪猪能吃到肉肉而学习！">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/20/Scanner%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Scanner对象</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-20 13:03:13" itemprop="dateCreated datePublished" datetime="2022-07-20T13:03:13+08:00">2022-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-24 19:43:18" itemprop="dateModified" datetime="2022-07-24T19:43:18+08:00">2022-07-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Scanner对象"><a href="#Scanner对象" class="headerlink" title="Scanner对象"></a>Scanner对象</h1><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Scanner</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br></pre></td></tr></table></figure>
+<hr>
+<ul>
+<li>通过Scanner类的next()与nextLine()的方法获取输入的字符串，在读取前我们一般需要使用hasNext()与hasNextLine()判断是否还有输入的数据</li>
+</ul>
+<h3 id="next-与nextLine-方法的区别"><a href="#next-与nextLine-方法的区别" class="headerlink" title="next()与nextLine()方法的区别"></a>next()与nextLine()方法的区别</h3><ul>
+<li><strong>next()</strong><ol>
+<li>一定要读取到有效字符后才可以结束输入</li>
+<li>对输入有效字符之前遇到的空白，next()方法会自动将其去掉</li>
+<li>只有输入有效字符后才能将其后面输入的空白作为分隔符或者结束符</li>
+<li>next()方法不能得到含有空格的字符串</li>
+</ol>
+</li>
+<li><strong>nextLine()</strong><ol>
+<li>以Enter作为结束符，也就是说 nextLine()方法返回的是输入回车之前的所有字符。</li>
+<li>可以获得空白</li>
+</ol>
+</li>
+</ul>
+<h5 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.org.apache.xerces.internal.impl.xs.SchemaNamespaceSupport;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (scanner.hasNextLine()) &#123;</span><br><span class="line">      <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> scanner.nextLine();</span><br><span class="line">      System.out.println(<span class="string">&quot;输入的内容为：&quot;</span> + str);</span><br><span class="line">    &#125;</span><br><span class="line">    scanner.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>注：实例化方法，不能直接调用类中的方法，需要实例化对象后，使用对象去调用类中方法。</p>
+<p>在实例化对象时，必须要用到构造方法。每一个类一定存在一个构造方法。且构造方法必须与类同名。</p>
+<p><em>如果是静态变量或方法（static）就可以用类名直接调用方法或变量</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -818,14 +918,14 @@ rd #移除目录
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-07-19 08:59:33" itemprop="dateCreated datePublished" datetime="2022-07-19T08:59:33+08:00">2022-07-19</time>
+      <time title="创建时间：2022-07-19 07:23:41" itemprop="dateCreated datePublished" datetime="2022-07-19T07:23:41+08:00">2022-07-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-06 08:26:45" itemprop="dateModified" datetime="2022-09-06T08:26:45+08:00">2022-09-06</time>
+      <time title="修改时间：2022-09-21 16:35:22" itemprop="dateModified" datetime="2022-09-21T16:35:22+08:00">2022-09-21</time>
     </span>
 
   
@@ -838,14 +938,14 @@ rd #移除目录
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Markdown-学习"><a href="#Markdown-学习" class="headerlink" title="Markdown 学习"></a>Markdown 学习</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><strong>hello ，word！</strong><br><em>hello ，word！</em><br><em><strong>hello ，word！</strong></em><br><del>hello ，word！</del></p>
+          <h1 id="Markdown-学习"><a href="#Markdown-学习" class="headerlink" title="Markdown 学习"></a>Markdown 学习</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p><strong>hello ，word！</strong><br><em>hello ，word！</em><br><em><strong>hello ，word！![1](G:\blog\source_posts\Markdown 学习\1.png)</strong></em><br><del>hello ，word！</del></p>
 <h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>markdown规定用两行回车来表示换行</p>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
 <p>选择java ，走向人生巅峰</p>
 </blockquote>
 <h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><hr>
 <hr>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="/2022/07/19/Markdown%20%E5%AD%A6%E4%B9%A0/1.png" alt="截图"></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://raw.githubusercontent.com/Zhuwenxue2002/blog-img/main/202209211619414.png" alt="截图"></p>
 <p><img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="网络图片"></p>
 <blockquote>
 <p>sublime text 插件快捷键是：shift+win+k</p>
